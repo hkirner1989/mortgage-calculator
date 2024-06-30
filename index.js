@@ -6,9 +6,9 @@ const mortgageSpan = document.getElementById("mortgage");
 
 function calculateTotal() {
     const loanValue = loanInput.value;
-    const interestValue = ((interestInput.value / 100) / 12);
-    const termValue = (termInput.value * 12);
-    const mortgageValue = (loanValue * interestValue ) + (loanValue/termValue);
+    const interestValue = ((interestInput.value / 100));
+    const termValue = (termInput.value);
+    const mortgageValue =  (loanValue * (interestValue / 12)) / ((1 - (1 + (interestValue/12))**(-12*termValue))) ;
     mortgageSpan.innerText = mortgageValue.toFixed(2);
 }
 
